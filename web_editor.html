@@ -4,8 +4,8 @@
         <title>WebEditor</title>
     
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="code_player.css">
-        <script type="text/javascript" src="code_player.js"></script>
+        <link rel="stylesheet" type="text/css" href="web_editor.css">
+        <script type="text/javascript" src="web_editor.js"></script>
         
     </head>
     
@@ -43,7 +43,7 @@
             
             <textarea id="htmlPanel" class="panel"><p id="paragraph">Enter your code here.</p></textarea>
             <textarea id="cssPanel" class="panel hidden">p {color: green;}</textarea>
-            <textarea id="javascriptPanel" class="panel hidden">alert("Hi");</textarea>
+            <textarea id="javascriptPanel" class="panel hidden">document.getElementById("paragraph").innerHTML = "Hello World."</textarea>
             
             
             
@@ -57,7 +57,9 @@
                 
                 $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + $("#cssPanel").val() + "</style></head><body>" + $("#htmlPanel").val() + "</body></html>");
                 
-                document.getElementById("#outputPanel").contentWindow.eval($("#javascriptPanel").val());
+                document.getElementById("outputPanel").contentWindow.eval($("#javascriptPanel").val());
+                
+                
                 
             }
             
